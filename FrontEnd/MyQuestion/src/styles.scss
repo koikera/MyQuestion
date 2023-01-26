@@ -1,2 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
+@import url('../node_modules/bootstrap-icons/font/bootstrap-icons.css');
+.bg-light{
+    background-color: #26C769 !important;
+}
+
+.bg-dark{
+    background-color: #669479 !important;
+}
+
+.bg-gray{
+    background-color: #D9D9D9 !important;
+}
+
+.border-purple{
+    border-color: #8426C7 !important;
+}
+
+.text-purple{
+    color: #8426C7 !important;
+}
