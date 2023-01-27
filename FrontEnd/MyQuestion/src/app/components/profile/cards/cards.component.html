@@ -4,14 +4,31 @@
         <h6>Biologia</h6>
         <hr>
     </div>
-    <div class="card p-3" style="width: 18rem; text-align:center">
-        <img src="assets/fungos.jpg" class="rounded-circle" style="width: 50%; margin-inline: 25%;" alt="">
-        <div class="card-body">
-          <h5 class="card-title">Fungos</h5>
-        </div>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+    <section class="d-flex justify-content-around align-center">
+      <i *ngIf="pagina == 1" class="bi bi-arrow-left-circle text-purple" style="font-size: 20px;"></i>
+      <div class="d-flex">
+        <div *ngFor="let item of temas" class="card p-3 rounded-5" style="width: 21rem; text-align:center; margin-inline: 5%;">
+          <img src="assets/fungos.jpg" class="rounded-circle" style="width: 50%; margin-inline: 25%;" alt="">
+          <div class="card-body">
+            <h5 class="card-title">{{item}}</h5>
+          </div>
+          <ul>
+            <li>
+              <p><span><i class="bi bi-question-lg"></i></span> 10 Perguntas</p>
+              <hr class="mt-0">
+            </li>
+            <li>
+              <p><span><i class="bi bi-pencil"></i></span> 240 Respostas</p>
+              <hr class="m-0">
+            </li>
+          </ul>
+          <div class="card-body">
+            <button class="btn btn-primary btn-sm border-pink">Responder</button>
+            <span><i class="bi bi-pencil-fill text-purple ms-2" style="cursor: pointer;"></i></span>
+          </div>
         </div>
       </div>
+      <i class="bi bi-arrow-right-circle text-purple" style="font-size: 20px;" (click)="proxixmaPag(1)" ></i>
+    </section>
+      
 </div>

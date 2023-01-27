@@ -21,7 +21,7 @@ import { SpecsProfileModule } from './components/profile/specs-profile/specs-pro
     BrowserModule,
     AppRoutingModule,
     SpecsProfileModule
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
