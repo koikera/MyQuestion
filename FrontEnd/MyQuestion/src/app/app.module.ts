@@ -8,6 +8,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CardsComponent } from './components/profile/cards/cards.component';
 import { SpecsProfileModule } from './components/profile/specs-profile/specs-profile.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NewCardComponent } from './shared/modal/new-card/new-card.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { SpecsProfileModule } from './components/profile/specs-profile/specs-pro
     NavComponent,
     FooterComponent,
     ProfileComponent,
-    CardsComponent
+    CardsComponent,
+    NewCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SpecsProfileModule
+    SpecsProfileModule,
+    NgbModule
     ],
   providers: [],
   bootstrap: [AppComponent]

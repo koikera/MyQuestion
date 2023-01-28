@@ -1,0 +1,57 @@
+<div class="modal-header">
+    <h5 class="modal-title">Novo Formulário</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body">
+    <div class="position-relative m-4">
+        <div class="progress" style="height: 1px;">
+          <div class="progress-bar" role="progressbar" aria-label="Progress" [ngStyle]="{'width': rangeFase}"aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <button [ngClass]="fase1" type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm rounded-pill" style="width: 2rem; height:2rem;">1</button>
+        <button [ngClass]="fase2" type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm rounded-pill" style="width: 2rem; height:2rem;">2</button>
+        <button [ngClass]="fase3" type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm rounded-pill" style="width: 2rem; height:2rem;">3</button>
+      </div>
+    <form action="">
+        <section *ngIf="fases == 1">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Matéria</label>
+                <input type="email" class="form-control border-purple" id="exampleFormControlInput1" placeholder="Português">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descrição</label>
+                <textarea class="form-control border-purple" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input border-purple" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Privado
+                </label>
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="file" id="formFile">
+            </div>
+        </section>
+        <section *ngIf="fases == 2">
+            <div class="p-2 border-purple border border-1 rounded ">
+                <div *ngFor="let item of perguntas" class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Pergunta {{item}}</label>
+                    <input type="email" class="form-control border-purple" id="exampleFormControlInput1" placeholder="Português">
+                </div>
+            </div>
+            <div class="float-end">
+                <button class="btn bg-transparent">Adicionar Pergunta <span><i class="bi bi-patch-plus text-purple"></i></span></button>
+            </div>
+        </section>
+    </form>
+    <div class="mb-3 float-center d-flex">
+        <button *ngIf="fases !== 1" class="btn bg-transparent" (click)="voltarFase()">
+            <span><i class="bi bi-arrow-left-square text-purple"></i></span> 
+            Voltar
+        </button>
+        <button class="btn bg-transparent" (click)="nextFase()">
+            Próximo 
+            <span><i class="bi bi-arrow-right-square text-purple"></i></span>
+        </button>
+    </div>
+
+</div>
