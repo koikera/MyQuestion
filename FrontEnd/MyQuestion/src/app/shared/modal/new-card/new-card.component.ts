@@ -8,7 +8,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class NewCardComponent implements OnInit {
   fases: number = 1
-  perguntas: Array<number> =  Array(10).fill(0).map((x,i)=>i);
+  perguntas: Array<number> =  [];
   rangeFase: string = '0%';
   fase1: string = 'btn-primary';
   fase2: string = 'btn-secondary';
@@ -20,6 +20,7 @@ export class NewCardComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.initPergunta();
   }
 
   closeModal(): void{
@@ -51,6 +52,14 @@ export class NewCardComponent implements OnInit {
       this.fase3 = 'btn-secondary';
       this.rangeFase = '50%';
     }
+  }
+
+  initPergunta(): void{
+    this.perguntas = Array(10).fill(0).map((x,i)=>i+1);
+  }
+
+  addPergunta(): void{
+    this.perguntas.push(this.perguntas.length + 1);
   }
 
 }

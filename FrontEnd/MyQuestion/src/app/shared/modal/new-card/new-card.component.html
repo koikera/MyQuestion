@@ -32,14 +32,38 @@
             </div>
         </section>
         <section *ngIf="fases == 2">
-            <div class="p-2 border-purple border border-1 rounded ">
+            <div class="p-2 border-purple border border-1 rounded " style="height: 500px;
+            overflow: scroll; overflow-x: hidden;">
                 <div *ngFor="let item of perguntas" class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Pergunta {{item}}</label>
-                    <input type="email" class="form-control border-purple" id="exampleFormControlInput1" placeholder="Português">
+                    <div class="d-flex justify-content-between me-3">
+                        <label for="exampleFormControlInput1" class="form-label">Pergunta {{item}}</label>
+                        <div class="d-flex">
+                            <label class="me-2" for="">Alternativa?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                                <label class="form-label me-2" for="flexSwitchCheckChecked">Não</label>
+                            </div>
+                            <span style="cursor: pointer;">
+                                <i class="bi bi-gear-wide-connected text-purple"></i>
+                            </span>
+                        </div>
+                        
+                    </div>
+                    <textarea class="form-control border-purple mb-3" id="exampleFormControlTextarea1" rows="3" placeholder="Pergunta "></textarea>
+                    <textarea class="form-control border-purple" id="exampleFormControlTextarea1" rows="3" placeholder="Resposta "></textarea>
                 </div>
             </div>
             <div class="float-end">
-                <button class="btn bg-transparent">Adicionar Pergunta <span><i class="bi bi-patch-plus text-purple"></i></span></button>
+                <button class="btn bg-transparent" type="button" (click)="addPergunta()">Adicionar Pergunta <span><i class="bi bi-patch-plus text-purple"></i></span></button>
+            </div>
+        </section>
+        <section *ngIf="fases == 3">
+            <div class="p-2 border-purple border border-1 rounded " style="height: 500px;
+            overflow: scroll; overflow-x: hidden;">
+                <div *ngFor="let item of perguntas" class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Pergunta {{item}}</label>
+                    <label for="exampleFormControlInput1" class="form-label">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet sollicitudin nulla. Cras aliquet pretium tincidunt. Phasellus ultrices nunc id diam faucibus, ac pretium libero vestibulum?</label>
+                </div>
             </div>
         </section>
     </form>
@@ -48,7 +72,7 @@
             <span><i class="bi bi-arrow-left-square text-purple"></i></span> 
             Voltar
         </button>
-        <button class="btn bg-transparent" (click)="nextFase()">
+        <button *ngIf="fases == 1 || fases == 2" class="btn bg-transparent" (click)="nextFase()">
             Próximo 
             <span><i class="bi bi-arrow-right-square text-purple"></i></span>
         </button>
