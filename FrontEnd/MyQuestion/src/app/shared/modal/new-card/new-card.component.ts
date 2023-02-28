@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TipoPergunta } from 'src/app/models/enumarators';
+import { Perguntas } from 'src/app/models/perguntas';
 
 @Component({
   selector: 'app-new-card',
@@ -8,7 +10,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class NewCardComponent implements OnInit {
   fases: number = 1
-  perguntas: Array<number> =  [];
+  perguntas: Array<any> =  [];
   rangeFase: string = '0%';
   fase1: string = 'btn-primary';
   fase2: string = 'btn-secondary';
@@ -21,6 +23,7 @@ export class NewCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.initPergunta();
+    this.visu();
   }
 
   closeModal(): void{
@@ -54,12 +57,28 @@ export class NewCardComponent implements OnInit {
     }
   }
 
+  visu(){
+    console.log(this.perguntas);
+  }
+
   initPergunta(): void{
-    this.perguntas = Array(10).fill(0).map((x,i)=>i+1);
+    this.perguntas = Array(10).fill(0).map((x,i)=>{
+      var newQuestion: Partial<Perguntas> = {}
+      newQuestion.id = i + 1;
+      newQuestion.tipo = TipoPergunta.Dissertativa;
+      return newQuestion;
+  });
   }
 
   addPergunta(): void{
     this.perguntas.push(this.perguntas.length + 1);
   }
 
+  changeTypeQuestion(id: number): void{
+    var editar = this.perguntas.find(x => x.id == id);
+
+    editar.tipo = editar.tipo == 0 ? 1 : 0 || editar.tipo == 1 ? 0 : 1
+    console.log(this.perguntas)
+
+  }
 }
