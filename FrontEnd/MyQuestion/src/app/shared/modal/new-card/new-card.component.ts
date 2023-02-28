@@ -71,7 +71,19 @@ export class NewCardComponent implements OnInit {
   }
 
   addPergunta(): void{
-    this.perguntas.push(this.perguntas.length + 1);
+    var ultimaPergunta = this.perguntas[this.perguntas.length - 1]
+
+    if(ultimaPergunta.id !== 20){
+      var newQuestion: Partial<Perguntas> = {}
+      newQuestion.id = ultimaPergunta.id + 1;
+      newQuestion.tipo = TipoPergunta.Dissertativa;
+      this.perguntas.push(newQuestion);
+      console.log(this.perguntas)
+
+    } else {
+      console.error("Limite de 20 perguntas")
+    }
+    
   }
 
   changeTypeQuestion(id: number): void{
