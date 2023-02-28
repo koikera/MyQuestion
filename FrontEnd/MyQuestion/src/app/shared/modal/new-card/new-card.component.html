@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <textarea class="form-control border-purple mb-3" id="exampleFormControlTextarea1" rows="3" placeholder="Pergunta "></textarea>
-                    <textarea *ngIf="item.tipo != 0" class="form-control border-purple" id="exampleFormControlTextarea1" rows="3" placeholder="Resposta "></textarea>
+                    <textarea *ngIf="item.tipo != 0" class="form-control border-purple" id="resposta{{item.id}}" rows="3" placeholder="Resposta" (change)="addRespostas(item.id)"></textarea>
                 </div>
             </div>
             <div class="float-end">

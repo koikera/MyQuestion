@@ -86,6 +86,13 @@ export class NewCardComponent implements OnInit {
     
   }
 
+  addRespostas(id: number): void {
+    var findPergunta = this.perguntas.find(x => x.id == id);
+
+    findPergunta.resposta = (document.getElementById(`resposta${id}`) as HTMLInputElement).value;
+    console.log(this.perguntas);
+  }
+
   changeTypeQuestion(id: number): void{
     var editar = this.perguntas.find(x => x.id == id);
 
