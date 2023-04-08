@@ -48,7 +48,7 @@
                             </span>
                         </div>
                     </div>
-                    <textarea class="form-control border-purple mb-3" id="exampleFormControlTextarea1" rows="3" placeholder="Pergunta "></textarea>
+                    <textarea class="form-control border-purple mb-3" id="pergunta{{item.id}}" rows="3" placeholder="Pergunta" (change)="novaPergunta(item.id)"></textarea>
                     <textarea *ngIf="item.tipo != 0" class="form-control border-purple" id="resposta{{item.id}}" rows="3" placeholder="Resposta" (change)="addRespostas(item.id)"></textarea>
                 </div>
             </div>
@@ -60,8 +60,9 @@
             <div class="p-2 border-purple border border-1 rounded " style="height: 500px;
             overflow: scroll; overflow-x: hidden;">
                 <div *ngFor="let item of perguntas" class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Pergunta {{item}}</label>
-                    <label for="exampleFormControlInput1" class="form-label">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet sollicitudin nulla. Cras aliquet pretium tincidunt. Phasellus ultrices nunc id diam faucibus, ac pretium libero vestibulum?</label>
+                    <label for="exampleFormControlInput1" class="form-label">{{item.id}}) {{item.pergunta}}</label>
+                    <br>
+                    <label for="exampleFormControlInput1" class="form-label">R: {{item.resposta}}</label>
                 </div>
             </div>
             <button class="btn btn-primary float-end m-2">Concluir</button>
